@@ -3,21 +3,6 @@ import java.util.Scanner;
 
 public class Ejercicio26 {
 
-    public static void main(String[] args) {
-        // Variable para almacenar el resultado de la comprobación
-        boolean esNumeroPrimo;
-
-        // Llamamos al método que verifica si el número es primo
-        esNumeroPrimo = comprobarPrimo();
-
-        // Mostramos el resultado al usuario
-        if (esNumeroPrimo == true) {
-            System.out.println("El número ingresado es primo.");
-        } else {
-            System.out.println("El número ingresado es compuesto.");
-        }
-    }
-
     public static boolean comprobarPrimo() {
         boolean esPrimo;
         int numero;
@@ -50,7 +35,21 @@ public class Ejercicio26 {
             esPrimo = false;
         }
 
-        // Retornamos el resultado al método principal
         return esPrimo;
+    }
+
+    public static void main(String[] args) {
+        // Variable para almacenar el resultado de la comprobación
+        boolean esNumeroPrimo;
+
+        // Llamamos al método que verifica si el número es primo
+        esNumeroPrimo = comprobarPrimo();
+
+        // Mostramos el resultado al usuario
+        if (esNumeroPrimo == true) {
+            System.out.println("El número ingresado es primo.");
+        } else {
+            System.out.println("El número ingresado es compuesto.");
+        }
     }
 }
