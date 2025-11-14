@@ -41,4 +41,27 @@ public class Alumno {
         return this.nota;
     }
     
+    // MÉTODOS
+    public String getCalificacion() {
+        if (nota <0 || nota>10) {
+            return "La nota no está entre 0 y 10";
+        }
+        else if (nota>0 && nota<=4) {
+            return "Suspenso";
+        }
+        else if (nota>=5 && nota<=6) {
+            return "Bien";
+        }
+        else if (nota>=7 && nota<=8) {
+            return "Notable";
+        }
+        else {
+            return "Sobresaliente";
+        }
+    }
+    // TO STRING
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + ", Nota: " + nota;
+    }
 }
