@@ -6,89 +6,36 @@ package ejercicio25;
 
 /**
  *
- * @author alumno
+ * @author Enrique
  */
-public class Servidor {
+public class Servidor extends Ordenador{
     // ATRIBUTOS
-    private int memoriaRAM;
-    private int capacidadDisco;
-    private String modeloProcesador;
-    private String modeloTarjetaGrafica;
-    private double precio;
-    private double tamanoMonitor;
+    private int tamanoMonitor;
     private String modeloTeclado;
     private String modeloRaton;
-
+    
     // CONSTRUCTOR POR DEFECTO
     public Servidor() {
-        this.memoriaRAM = 0;
-        this.capacidadDisco = 0;
-        this.modeloProcesador = "";
-        this.modeloTarjetaGrafica = "";
-        this.precio = 0.0;
-        this.tamanoMonitor = 0.0;
+        super();
+        this.tamanoMonitor = 0;
         this.modeloTeclado = "";
         this.modeloRaton = "";
     }
-
+    
     // CONSTRUCTOR PARAMETRIZADO
-    public Servidor(int memoriaRAM, int capacidadDisco, String modeloProcesador, String modeloTarjetaGrafica, double precio, double tamanoMonitor, String modeloTeclado, String modeloRaton) {
-        this.memoriaRAM = memoriaRAM;
-        this.capacidadDisco = capacidadDisco;
-        this.modeloProcesador = modeloProcesador;
-        this.modeloTarjetaGrafica = modeloTarjetaGrafica;
-        this.precio = precio;
+    public Servidor(int tamanoMonitor, String modeloTeclado, String modeloRaton, int memoria, int disco, String modeloProcesador, String modeloTarjeta, int precio) {
+        super(memoria, disco, modeloProcesador, modeloTarjeta, precio);
         this.tamanoMonitor = tamanoMonitor;
         this.modeloTeclado = modeloTeclado;
         this.modeloRaton = modeloRaton;
     }
-
+    
     // GETTERS Y SETTERS
-    public int getMemoriaRAM() {
-        return memoriaRAM;
-    }
-
-    public void setMemoriaRAM(int memoriaRAM) {
-        this.memoriaRAM = memoriaRAM;
-    }
-
-    public int getCapacidadDisco() {
-        return capacidadDisco;
-    }
-
-    public void setCapacidadDisco(int capacidadDisco) {
-        this.capacidadDisco = capacidadDisco;
-    }
-
-    public String getModeloProcesador() {
-        return modeloProcesador;
-    }
-
-    public void setModeloProcesador(String modeloProcesador) {
-        this.modeloProcesador = modeloProcesador;
-    }
-
-    public String getModeloTarjetaGrafica() {
-        return modeloTarjetaGrafica;
-    }
-
-    public void setModeloTarjetaGrafica(String modeloTarjetaGrafica) {
-        this.modeloTarjetaGrafica = modeloTarjetaGrafica;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public double getTamanoMonitor() {
+    public int getTamanoMonitor() {
         return tamanoMonitor;
     }
 
-    public void setTamanoMonitor(double tamanoMonitor) {
+    public void setTamanoMonitor(int tamanoMonitor) {
         this.tamanoMonitor = tamanoMonitor;
     }
 
@@ -107,13 +54,14 @@ public class Servidor {
     public void setModeloRaton(String modeloRaton) {
         this.modeloRaton = modeloRaton;
     }
-
+    
+    // MÉTODOS
+    
     // TO STRING
+
     @Override
     public String toString() {
-        return "Memoria RAM: " + memoriaRAM + " GB, Capacidad Disco: " + capacidadDisco + " GB, Procesador: " 
-                + modeloProcesador + ", Tarjeta Gráfica: " + modeloTarjetaGrafica + ", Precio: " + precio + " €, "
-                + "Tamaño Monitor: " + tamanoMonitor + " pulgadas, Teclado: " + modeloTeclado + ", Ratón: " + modeloRaton;
+        return super.toString()+ ", Servidor{" + "tamanoMonitor=" + tamanoMonitor + ", modeloTeclado=" + modeloTeclado + ", modeloRaton=" + modeloRaton + '}';
     }
     
 }

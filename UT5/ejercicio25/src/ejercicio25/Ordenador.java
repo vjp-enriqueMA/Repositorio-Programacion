@@ -6,50 +6,49 @@ package ejercicio25;
 
 /**
  *
- * @author alumno
+ * @author Enrique
  */
 public class Ordenador {
     // ATRIBUTOS
-    private int memoriaRAM;
-    private int capacidadDisco;
+    private int memoria;
+    private int disco;
     private String modeloProcesador;
-    private String modeloTarjetaGrafica;
-    private double precio;
-
-    // CONSTRUCTORES
-    // POR DEFECTO
+    private String modeloTarjeta;
+    private int precio; 
+    
+    // CONSTRUCTOR POR DEFECTO
     public Ordenador() {
-        this.memoriaRAM = 0;
-        this.capacidadDisco = 0;
+        this.memoria = 0;
+        this.disco = 0;
         this.modeloProcesador = "";
-        this.modeloTarjetaGrafica = "";
-        this.precio = 0.0;
+        this.modeloTarjeta = "";
+        this.precio = 0;
     }
-
-    // PARAMETRIZADO
-    public Ordenador(int memoriaRAM, int capacidadDisco, String modeloProcesador, String modeloTarjetaGrafica, double precio) {
-        this.memoriaRAM = memoriaRAM;
-        this.capacidadDisco = capacidadDisco;
+    
+    // CONSTRUCTOR PARAMETRIZADO
+    public Ordenador(int memoria, int disco, String modeloProcesador, String modeloTarjeta, int precio) {
+        this.memoria = memoria;
+        this.disco = disco;
         this.modeloProcesador = modeloProcesador;
-        this.modeloTarjetaGrafica = modeloTarjetaGrafica;
+        this.modeloTarjeta = modeloTarjeta;
         this.precio = precio;
     }
-
+    
     // GETTERS Y SETTERS
-    public int getMemoriaRAM() {
-        return memoriaRAM;
+    public int getMemoria() {
+        return memoria;
     }
 
-    public void setMemoriaRAM(int memoriaRAM) {
-        this.memoriaRAM = memoriaRAM;
+    public void setMemoria(int memoria) {
+        this.memoria = memoria;
     }
 
-    public int getCapacidadDisco() {
-        return capacidadDisco;
+    public int getDisco() {
+        return disco;
     }
 
-    public void setCapacidadDisco(int capacidadDisco) {
-        this.capacidadDisco = capacidadDisco;
+    public void setDisco(int disco) {
+        this.disco = disco;
     }
 
     public String getModeloProcesador() {
@@ -60,26 +59,35 @@ public class Ordenador {
         this.modeloProcesador = modeloProcesador;
     }
 
-    public String getModeloTarjetaGrafica() {
-        return modeloTarjetaGrafica;
+    public String getModeloTarjeta() {
+        return modeloTarjeta;
     }
 
-    public void setModeloTarjetaGrafica(String modeloTarjetaGrafica) {
-        this.modeloTarjetaGrafica = modeloTarjetaGrafica;
+    public void setModeloTarjeta(String modeloTarjeta) {
+        this.modeloTarjeta = modeloTarjeta;
     }
 
-    public double getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
-
+    
+    // MÉTOODOS
+    public void controlarCapacidad() {
+        if (precio<0) {
+            System.out.println("Error, introduce una capacidad mayor a 0");
+        }
+    }
+    
     // TO STRING
     @Override
     public String toString() {
-        return "Memoria RAM: " + memoriaRAM + " GB, Capacidad Disco: " + capacidadDisco + " GB, Procesador: " + modeloProcesador
-                + ", Tarjeta Gráfica: " + modeloTarjetaGrafica + ", Precio: " + precio + " €";
+        return "Ordenador{" + "memoria=" + memoria + ", disco=" + disco + ", modeloProcesador=" + modeloProcesador + ", modeloTarjeta=" + modeloTarjeta + ", precio=" + precio + '}';
     }
+    
+    
+    
 }
