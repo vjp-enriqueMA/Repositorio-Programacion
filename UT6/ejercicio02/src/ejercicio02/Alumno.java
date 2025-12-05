@@ -11,23 +11,37 @@ package ejercicio02;
 public class Alumno extends Persona{
     // ATRIBUTOS
     private String grupo;
-
-    // CONSTRUCTOR POR DEFECTO
-    public Alumno(){
+   
+    // CONSTRUCTORES
+    // Por defecto
+    public Alumno() {
         super();
-        this.grupo="";
+        this.grupo = "";
     }
-    
-    // CONSTRUCTOR PARAMETRIZADO
+    // Parametrizado
     public Alumno(String nombre, String grupo) {
         super(nombre);
-        this.grupo=grupo;
+        this.grupo = grupo;
     }
-    
-    
+   
+    // GETTERS Y SETTERS
+    public String getGrupo() {
+        return this.grupo;
+    }
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+   
+    // MÉTODOS
     @Override
     public String saludar() {
-        return "Hola, soy el alumno "+getAlumno+" y estoy en el grupo de "+grupo+"";
+        return "Hola, soy el alumno " + getNombre() + ", y estoy en el grupo de " + grupo;
     }
-    
+   
+    // TO STRING
+    @Override
+    public String toString() {
+        return super.toString() + ", Grupo: " + grupo;
+    }
+   
 }
