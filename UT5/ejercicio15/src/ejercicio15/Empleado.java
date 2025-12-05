@@ -6,31 +6,31 @@ package ejercicio15;
 
 /**
  *
- * @author alumno
+ * @author Enrique
  */
 public class Empleado {
-    // Atributos
+    // ATRIBUTOS
     private String nombre;
     private int salario;
     private Direccion direccion;
-
-    // Constructor por defecto
+    
+    // CONSTRUCTOR POR DEFECTO
     public Empleado() {
         this.nombre = "";
         this.salario = 0;
-        this.direccion = new Direccion(); // Dirección vacía por defecto
+        this.direccion = new Direccion();
     }
-
-    // Constructor parametrizado
+    
+    // CONSTRUCTOR PARAMETRIZADO
     public Empleado(String nombre, int salario, Direccion direccion) {
         this.nombre = nombre;
         this.salario = salario;
         this.direccion = direccion;
     }
-
-    // Getters y setters
+    
+    // GETTERS Y SETTERS
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
@@ -38,7 +38,7 @@ public class Empleado {
     }
 
     public int getSalario() {
-        return salario;
+        return this.salario;
     }
 
     public void setSalario(int salario) {
@@ -46,16 +46,19 @@ public class Empleado {
     }
 
     public Direccion getDireccion() {
-        return direccion;
+        return this.direccion;
     }
 
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
-
-    // toString para mostrar información del empleado
+    
+    // MÉTODOS
+    
+    // TO STRING
     @Override
     public String toString() {
-        return "Nombre: " + nombre + ", Salario: " + salario + ", Dirección: " + direccion.toString();
+        return "Empleado{" + "nombre=" + nombre + ", salario=" + salario + ", direccion=" + direccion + '}';
     }
+    
 }

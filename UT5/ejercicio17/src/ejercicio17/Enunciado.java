@@ -6,44 +6,47 @@ package ejercicio17;
 
 /**
  *
- * @author alumno
+ * @author Enrique
  */
 public class Enunciado {
-    //ATRIBUTOS
+    // ATRIBUTOS
     private String pregunta;
     private String respuesta;
     
-    //CONSTRUCTORES
-    //POR DEFECTO
+    // CONSTRUCTOR POR DEFECTO
     public Enunciado() {
-        this.pregunta="";
-        this.respuesta="";
+        this.pregunta = "";
+        this.respuesta = "";
     }
     
-    //PARAMETRIZADO
+    // CONSTRUCTOR PARAMETRIZADO
     public Enunciado(String pregunta, String respuesta) {
-        this.pregunta=pregunta;
-        this.respuesta=respuesta;
+        this.pregunta = pregunta;
+        this.respuesta = respuesta;
     }
     
     // GETTERS Y SETTERS
-    public void setPregunta(String pregunta) {
-        this.pregunta=pregunta;
-    }
     public String getPregunta() {
         return this.pregunta;
     }
-    
-    public void setRespuesta(String respuesta) {
-        this.respuesta=respuesta;
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
     }
+
     public String getRespuesta() {
         return this.respuesta;
     }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
+    }
+    
+    // MÉTODOS
     
     // TO STRING
     @Override
     public String toString() {
-        return "Pregunta: " + pregunta + ", Nota: " + respuesta;
+        return "Enunciado{" + "pregunta=" + pregunta + ", respuesta=" + respuesta + '}';
     }
 }

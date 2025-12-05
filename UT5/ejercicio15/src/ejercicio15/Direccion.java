@@ -6,34 +6,34 @@ package ejercicio15;
 
 /**
  *
- * @author alumno
+ * @author Enrique
  */
 public class Direccion {
-    // Atributos
+    //ATRIBUTOS
     private String calle;
     private int numero;
     private int piso;
     private String ciudad;
-
-    // Constructor por defecto
+    
+    // CONSTRUCTOR POR DEFECTO
     public Direccion() {
         this.calle = "";
         this.numero = 0;
         this.piso = 0;
         this.ciudad = "";
     }
-
-    // Constructor parametrizado
+    
+    // CONSTRUCTOR PARAMETRIZADO
     public Direccion(String calle, int numero, int piso, String ciudad) {
         this.calle = calle;
         this.numero = numero;
         this.piso = piso;
         this.ciudad = ciudad;
     }
-
-    // Getters y Setters
+    
+    // GETTERS Y SETTERS
     public String getCalle() {
-        return calle;
+        return this.calle;
     }
 
     public void setCalle(String calle) {
@@ -41,7 +41,7 @@ public class Direccion {
     }
 
     public int getNumero() {
-        return numero;
+        return this.numero;
     }
 
     public void setNumero(int numero) {
@@ -49,7 +49,7 @@ public class Direccion {
     }
 
     public int getPiso() {
-        return piso;
+        return this.piso;
     }
 
     public void setPiso(int piso) {
@@ -57,16 +57,19 @@ public class Direccion {
     }
 
     public String getCiudad() {
-        return ciudad;
+        return this.ciudad;
     }
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
-    // Método toString para mostrar la dirección
+    
+    // MÉTODOS
+    
+    // TO STRING
     @Override
     public String toString() {
-        return calle + ", " + numero + "º " + piso + ", " + ciudad;
+        return "calle=" + calle + ", numero=" + numero + ", piso=" + piso + ", ciudad=" + ciudad + '}';
     }
+    
 }
