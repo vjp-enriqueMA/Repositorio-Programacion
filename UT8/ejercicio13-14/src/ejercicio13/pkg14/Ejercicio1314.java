@@ -35,9 +35,59 @@ public class Ejercicio1314 {
             System.out.println("Introduce la posicion del alumno que quieres crear");
             int posicion = entrada.nextInt();
             entrada.nextLine();
+            while (alumnos[posicion] != null) {
+                System.out.println("Por favor, elige otra posicion, está ya esta elegida");
+                posicion = entrada.nextInt();
+                entrada.nextLine();
+            }
             alumnos[posicion] = new Alumnos(nombre,edad,notaMedia);
         }
         return alumnos;
+    }
+    
+    public static void mostrarAlumnos(Alumnos[] alumnos) {
+        int i;
+        for (i = 0; i < alumnos.length; i++) {
+            System.out.println(alumnos[i]);
+        }
+    }
+    
+    public static void mostrarAlumnosMedia(Alumnos[] alumnos) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Introduce una nota");
+        double nota = entrada.nextDouble();
+        entrada.nextLine();
+        
+        int i;
+        for (i = 0; i < alumnos.length; i++) {
+            if (alumnos[i].getNotaMedia() > nota) {
+                System.out.println("El alumno " +alumnos[i].getNombre()+" tiene una media de "+alumnos[i].getNotaMedia()+"");
+            }
+        }
+    }
+    
+    public static void mostrarAlumnosSuspenso(Alumnos[] alumnos) {
+        int i;
+        int nota = 5;
+        for (i = 0; i < alumnos.length; i++) {
+            if (alumnos[i].getNotaMedia() < nota) {
+                System.out.println(alumnos[i].getNombre());
+            }
+        }
+    }
+    
+    public static void buscarAlumnos(Alumnos[] alumnos) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Introduce un nombre");
+        String nombre = entrada.nextLine();
+        
+        for (int i = 0; i < alumnos.length; i++) {
+            if (alumnos[i] != null && alumnos[i].getNombre().equalsIgnoreCase(nombre)) {
+                System.out.println("El alumno "+alumnos[i].getNombre()+" está matriculado");
+                return;
+            }
+            }
+        System.out.println("El alumno " + nombre + " no está matriculado");
     }
     /**
      * @param args the command line arguments
@@ -56,16 +106,16 @@ public class Ejercicio1314 {
                         alumnos = rellenarArray();
                         break;
                     case 2:
-                        
+                        mostrarAlumnos(alumnos);
                         break;
                     case 3:
-                        
+                        mostrarAlumnosMedia(alumnos);
                         break;
                     case 4:
-                        
+                        mostrarAlumnosSuspenso(alumnos);
                         break;
                     case 5:
-                        
+                        buscarAlumnos(alumnos);
                         break;
                     case 6:
                         System.out.println("Te has salido del programa");
