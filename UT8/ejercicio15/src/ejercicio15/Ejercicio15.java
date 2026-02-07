@@ -4,7 +4,6 @@
  */
 package ejercicio15;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 /**
  *
  * @author alumno
@@ -51,8 +50,103 @@ public class Ejercicio15 {
     
     public static void mostrarPeliculasConSocios(Pelicula[] peliculas) {
         for (int i = 0; i < peliculas.length; i++) {
-            System.out.println(peliculas[i]);
+        System.out.println("Título: " + peliculas[i].getTitulo());
+        System.out.println("Coste de licencia: " + peliculas[i].getCosteLicencia());
+
+        Socio[] socios = peliculas[i].getSocios();
+        for (int j = 0; j < socios.length; j++) {
+            System.out.println("  Socio " + (j + 1) + ":");
+            System.out.println("    Nombre: " + socios[j].getNombre());
+            System.out.println("    Precio abonado: " + socios[j].getPrecio());
         }
+        }
+    }
+    
+    public static void mostrarPeliculaMasRentable(Pelicula[] peliculas) {
+        int indiceMejor = 0;
+        double mejorBeneficio = 0;
+        for (int i = 0; i < peliculas.length; i++) {
+            Socio[] socios = peliculas[i].getSocios();
+            double suma = 0;
+            for (int j = 0; j < socios.length; j++) {
+                suma = suma + socios[j].getPrecio();
+            }
+            double beneficio = suma - peliculas[i].getCosteLicencia();
+            if (i == 0 || beneficio > mejorBeneficio) {
+                mejorBeneficio = beneficio;
+                indiceMejor = i;
+            }
+        }
+        System.out.println("La película más rentable es "+peliculas[indiceMejor].getTitulo()+" con un beneficio de "+mejorBeneficio+"");
+    }
+    
+    public static void mostrarPeliculaMenosRentable(Pelicula[] peliculas) {
+        int indiceMejor = 0;
+        double menorBeneficio = 0;
+        for (int i = 0; i < peliculas.length; i++) {
+            Socio[] socios = peliculas[i].getSocios();
+            double suma = 0;
+            for (int j = 0; j < socios.length; j++) {
+                suma = suma + socios[j].getPrecio();
+            }
+            double beneficio = suma - peliculas[i].getCosteLicencia();
+            if (i == 0 || beneficio < menorBeneficio) {
+                menorBeneficio = beneficio;
+                indiceMejor = i;
+            }
+        }
+        System.out.println("La película menos rentable es "+peliculas[indiceMejor].getTitulo()+" con un beneficio de "+menorBeneficio+"");
+    }
+    
+    public static void pedirNombreYMostrar(Pelicula[] peliculas) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Introduce el nombre de una película");
+        String nombre = entrada.nextLine();
+        
+        boolean encontrado = false;
+        int i = 0;
+        
+        while (i < peliculas.length && !encontrado) {
+            if (peliculas[i].getTitulo().equalsIgnoreCase(nombre)) {
+                encontrado = true;
+            }
+            else {
+                i++;
+            }
+        }
+        if (encontrado == true) {
+            System.out.println("Título: "+peliculas[i].getTitulo()+"");
+            System.out.println("Coste: "+peliculas[i].getCosteLicencia()+"");
+            Socio[] socios = peliculas[i].getSocios();
+            double suma = 0;
+            for (int j = 0; j < socios.length; j++) {
+                suma = suma + socios[j].getPrecio();
+                System.out.println("Nombre: "+socios[j].getNombre()+"");
+                System.out.println("Total precio "+socios[j].getPrecio()+"");
+            }
+            double beneficio = suma - peliculas[i].getCosteLicencia();
+            System.out.println("Beneficio de la película "+peliculas[i].getTitulo()+": "+beneficio+"");
+        }
+        else {
+            System.out.println("La película no existe");
+        }
+    }
+    
+    public static void contarSocios(Pelicula[] peliculas) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Introduce un precio");
+        int precio = entrada.nextInt();
+        int contador = 0;
+        for (int i = 0; i < peliculas.length; i++) {
+            Socio[] socios = peliculas[i].getSocios();
+            for (int j = 0; j < socios.length; j++) {
+                if (socios[j].getPrecio() > precio) {
+                    contador++;
+                }
+            }
+        }
+        System.out.println("Número de socios que han abonado más de " + precio + ": " + contador);
+
     }
     /**
      * @param args the command line arguments
@@ -73,16 +167,16 @@ public class Ejercicio15 {
                         mostrarPeliculasConSocios(peliculas);
                         break;
                     case 3:
-                        
+                        mostrarPeliculaMasRentable(peliculas);
                         break;
                     case 4:
-                        
+                        mostrarPeliculaMenosRentable(peliculas);
                         break;
                     case 5:
-                        
+                        pedirNombreYMostrar(peliculas);
                         break;
                     case 6:
-                        
+                        contarSocios(peliculas);
                         break;
                     case 7:
                         System.out.println("Te has salido del programa");
