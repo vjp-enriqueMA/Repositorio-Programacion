@@ -57,13 +57,9 @@ public class Pelicula {
     }
     
     // TO STRING
-     @Override
+    @Override
     public String toString() {
-    String info = "Título: " + titulo + "\nCoste: " + costeLicencia + " €\nSocios que la han visto:\n";
-    for (int i = 0; i < socios.length; i++) {
-        info += " - " + socios[i] + "\n";  // Llama automáticamente al toString() de Socio
+        return "Pelicula{" + "titulo=" + titulo + ", costeLicencia=" + costeLicencia + ", socios=" + socios + '}';
     }
-    return info;
-}
     
 }
