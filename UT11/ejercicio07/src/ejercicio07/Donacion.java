@@ -8,7 +8,7 @@ package ejercicio07;
  *
  * @author alumno
  */
-public class Donacion implements Comparable<Donacion>{
+public class Donacion {
     // ATRIBUTOS
     private String nombre;
     private double cantidadDonada;
@@ -46,10 +46,5 @@ public class Donacion implements Comparable<Donacion>{
     @Override
     public String toString() {
         return "Donacion{" + "nombre=" + nombre + ", cantidadDonada=" + cantidadDonada + '}';
-    }
-
-    @Override
-    public int compareTo(Donacion o) {
-        return (int) (o.getCantidadDonada() - this.getCantidadDonada());
     }
 }

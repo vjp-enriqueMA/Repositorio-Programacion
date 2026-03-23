@@ -30,6 +30,55 @@ public class Ejercicio07 {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Introduce el nombre de la campaña");
         String nombre = entrada.nextLine();
+        campania.add(new Campania(nombre));
+    }
+    
+    public static void añadirDonacion(ArrayList<Campania> campania) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Introduce el nombre de la campaña");
+        String nombre = entrada.nextLine();
+        
+        boolean encontrado = false;
+        
+        for (int i = 0; i < campania.size(); i++) {
+            if (campania.get(i).getNombre().equalsIgnoreCase(nombre)) {
+                encontrado = true;
+                System.out.println("Introduce el nombre del donante");
+                String nombreDonante = entrada.nextLine();
+                System.out.println("Introduce la cantidad a donar");
+                double cantidad = entrada.nextDouble();
+                entrada.nextLine();
+                campania.get(i).getDonaciones().add(new Donacion(nombreDonante,cantidad));
+            }
+        }
+        if (!encontrado) {
+            System.out.println("No se ha encontrado la campania");
+        }
+        
+    }
+    
+    public static void mostrarCampañasYDonaciones(ArrayList<Campania> campania) {
+        for (int i = 0; i < campania.size(); i++) {
+            System.out.println(campania.get(i).getNombre());
+            System.out.println(campania.get(i).getDonaciones());
+        }
+    }
+    
+    public static void mostrarCampañaPorNombre(ArrayList<Campania> campania) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Introduce el nombre de la campaña");
+        String nombre = entrada.nextLine();
+        boolean encontrado = false;
+        for (int i = 0; i < campania.size(); i++) {
+            if (campania.get(i).getNombre().equalsIgnoreCase(nombre)) {
+                encontrado = true;
+                System.out.println(campania.get(i).getNombre());
+                System.out.println(campania.get(i).getDonaciones());
+            }
+        }
+        if (!encontrado) {
+            System.out.println("No se ha encontrado la campaña");
+        }
     }
     /**
      * @param args the command line arguments
@@ -46,16 +95,16 @@ public class Ejercicio07 {
                 opcion = entrada.nextInt();
                 switch (opcion) {
                     case 1:
-
+                        añadirCampaña(campania);
                         break;
                     case 2:
-
+                        añadirDonacion(campania);
                         break;
                     case 3:
-
+                        mostrarCampañasYDonaciones(campania);
                         break;
                     case 4:
-
+                        mostrarCampañaPorNombre(campania);
                         break;
                     case 5:
 

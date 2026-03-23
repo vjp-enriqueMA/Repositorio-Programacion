@@ -27,7 +27,10 @@ public class Campania {
         this.donaciones = donaciones;
         this.nombre = nombre;
     }
-    
+    public Campania(String nombre) {
+        this.donaciones = new LinkedHashSet<>();;
+        this.nombre = nombre;
+    }
     // GETTERS Y SETTERS
     public Set<Donacion> getDonaciones() {
         return donaciones;
