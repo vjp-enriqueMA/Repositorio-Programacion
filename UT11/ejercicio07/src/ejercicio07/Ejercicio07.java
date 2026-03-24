@@ -80,6 +80,40 @@ public class Ejercicio07 {
             System.out.println("No se ha encontrado la campaña");
         }
     }
+    
+    public static void mostrarTotalDinero(ArrayList<Campania> campania) {
+        double suma = 0;
+        for (int i = 0; i < campania.size(); i++) {
+            for (Donacion d : campania.get(i).getDonaciones()) {
+                suma = suma + d.getCantidadDonada();
+            }
+        }
+        System.out.println("El dinero total recaudado es de "+suma+"");
+    }
+    
+    public static void mostrarMayorDonacion(ArrayList<Campania> campania) {
+        double mayor = 0;
+        Donacion mayorDonacion = null;
+        String nombreCampania = "";
+
+        for (int i = 0; i < campania.size(); i++) {
+            for (Donacion d : campania.get(i).getDonaciones()) {
+                if (d.getCantidadDonada() > mayor) {
+                    mayor = d.getCantidadDonada();
+                    mayorDonacion = d;
+                    nombreCampania = campania.get(i).getNombre();
+                }
+            }
+        }
+
+        if (mayorDonacion != null) {
+            System.out.println("La mayor donación es de " + mayor + "");
+            System.out.println("Donante: " + mayorDonacion.getNombre()+"");
+            System.out.println("Campaña: " + nombreCampania);
+        } else {
+            System.out.println("No hay donaciones registradas.");
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -107,10 +141,10 @@ public class Ejercicio07 {
                         mostrarCampañaPorNombre(campania);
                         break;
                     case 5:
-
+                        mostrarTotalDinero(campania);
                         break;
                     case 6:
-
+                        mostrarMayorDonacion(campania);
                         break;
                     case 7:
                         System.out.println("Te has salido del programa");
