@@ -149,7 +149,7 @@ public class ProyectoCorelink {
                         leerFicheroClaves();
                         break;
                     case 4:
-                        
+                        escribirFicheroClaves();
                         break;
                     case 5:
                         System.out.println("Gracias por usar el programa");
